@@ -1,5 +1,9 @@
+agents:
+  queue: "android-poc"
 steps:
   - label: ":console:"
-    command: "echo \"Hello\""
-    agents:
-      queue: "android-poc"
+    command:
+      - "echo 'Hello'"
+    artifact_paths:
+      - "README.md"
+      
