@@ -1,0 +1,5 @@
+steps:
+  - label: ":console:"
+    command: "echo \"Hello\""
+    agents:
+      queue: "android-poc"
