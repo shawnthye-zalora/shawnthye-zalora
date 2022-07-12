@@ -18,8 +18,8 @@ steps:
           run: fastlane
       - artifacts#v1.5.0:
           download:
-            - from: 'app/build/outputs/bundle/**/*.aab'
-              to: '.buildkite'
+            - from: '*.aab'
+              to: '.'
           step: 'package'
 
   - input: ':rocket: Input 1'
