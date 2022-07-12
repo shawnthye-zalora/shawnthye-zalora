@@ -1,5 +1,6 @@
 steps:
-  - label: ':console:'
+  - label: ':console: Upload'
+    key: "package"
     command:
       - "echo 'Hello'"
     artifact_paths:
@@ -9,3 +10,26 @@ steps:
     plugins:
       - docker-compose#v3.10.0:
           run: fastlane
+
+  - input: ":rocket: Input 1"
+    depends_on: "package"
+    key: "input-1"
+    fields:
+      - text: "Input 1"
+        key: "input-1"
+
+  - input: ":rocket: Input 2"
+    depends_on: "package"
+    key: "input-1"
+    fields:
+      - text: "Input 2"
+        key: "input-2"
+
+
+  - label: "Command on input 1"
+    depends_on: "input-1"
+    command: "echo 'Hello input 1'"
+  
+  - label: "Command on input 2"
+    depends_on: "input-2"
+    command: "echo 'Hello input 2'"
