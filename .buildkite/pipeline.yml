@@ -3,16 +3,11 @@ steps:
     key: 'package'
     command:
       - "echo 'Hello'"
-    # artifact_paths:
-    #   - 'README.md'
-    #   - 'app/build/outputs/bundle/**/*.aab'
     plugins:
       - docker-compose#v3.10.0:
           run: fastlane
       - artifacts#v1.5.0:
-          upload:
-            - from: '**/*.aab'
-              to: 'build/aaa.aab'
+          upload: ['app/build/outputs/bundle/**/*.aab']
 
   - command: 'echo "+++ Files" && ls -alR'
     depends_on: 'package'
@@ -20,7 +15,7 @@ steps:
       - docker-compose#v3.10.0:
           run: fastlane
       - artifacts#v1.5.0:
-          download: '*.aab'
+          download: '**/*.aab'
           step: 'package'
 
   - input: ':rocket: Input 1'
