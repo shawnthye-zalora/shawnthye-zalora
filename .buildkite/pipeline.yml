@@ -15,14 +15,13 @@ steps:
     depends_on: 'package'
     plugins:
       - docker-compose#v3.10.0:
-          run: fastlane    
-          command: ["mkdir" "tmp"]
+          run: fastlane
+          command: ['mkdir', 'tmp']
       - artifacts#v1.5.0:
           download:
             - from: 'app/build/outputs/bundle/**/*.aab'
               to: 'tmp/'
           step: 'package'
-
 
   - input: ':rocket: Input 1'
     depends_on: 'package'
