@@ -16,14 +16,14 @@ steps:
     key: "input-1"
     fields:
       - text: "Input 1"
-        key: "input-1"
+        key: "field-input-1"
 
   - input: ":rocket: Input 2"
     depends_on: "package"
     key: "input-2"
     fields:
       - text: "Input 2"
-        key: "input-2"
+        key: "field-input-2"
 
 
   - label: "Command on input 1"
