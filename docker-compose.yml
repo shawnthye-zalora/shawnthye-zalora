@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  fastlane:
+    image: 536070040374.dkr.ecr.ap-southeast-1.amazonaws.com/ruby-bundler:latest
+    volumes:
+      - $PWD:/workspaces
+    working_dir: /workspaces

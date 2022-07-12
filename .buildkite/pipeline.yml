@@ -1,9 +1,9 @@
-agents:
-  queue: "android-poc"
 steps:
-  - label: ":console:"
+  - label: ':console:'
     command:
       - "echo 'Hello'"
     artifact_paths:
-      - "README.md"
-      
+      - 'README.md'
+    plugins:
+      - docker-compose#v3.10.0:
+          run: fastlane
