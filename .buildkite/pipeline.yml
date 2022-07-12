@@ -11,7 +11,7 @@ steps:
           run: fastlane
       - artifacts#v1.5.0:
           upload:
-            from: 'app/build/outputs/bundle/**/*.aab'
+            from: '**/*.aab'
             to: 'build'
 
   - command: 'echo "+++ Files" && ls -alR'
