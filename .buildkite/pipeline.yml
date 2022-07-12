@@ -12,10 +12,11 @@ steps:
           run: fastlane
 
   - command: 'echo "+++ Files" && ls -alR'
+    depends_on: 'package'
     plugins:
       - artifacts#v1.5.0:
           download:
-            - from: '**/*.aab'
+            - from: 'app/build/outputs/bundle/**/*.aab'
               to: tmp/
           step: 'package'
       - docker-compose#v3.10.0:
