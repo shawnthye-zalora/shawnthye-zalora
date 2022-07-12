@@ -1,35 +1,44 @@
 steps:
   - label: ':console: Upload'
-    key: "package"
+    key: 'package'
     command:
       - "echo 'Hello'"
     artifact_paths:
       - 'README.md'
-      - "app/build/outputs/bundle/**/*.aab"
+      - 'app/build/outputs/bundle/**/*.aab'
       # - "app/build/outputs/bundle/debug/app-debug.aab"
     plugins:
       - docker-compose#v3.10.0:
           run: fastlane
 
-  - input: ":rocket: Input 1"
-    depends_on: "package"
-    key: "input-1"
+  - command: 'echo "+++ Files" && ls -alR'
+    plugins:
+      - artifacts#v1.5.0:
+          download:
+            - from: 'app/build/outputs/bundle/**/*.aab'
+              to: tmp/
+          step: 'package'
+      - docker-compose#v3.10.0:
+          run: fastlane
+
+  - input: ':rocket: Input 1'
+    depends_on: 'package'
+    key: 'input-1'
     fields:
-      - text: "Input 1"
-        key: "field-input-1"
+      - text: 'Input 1'
+        key: 'field-input-1'
 
-  - input: ":rocket: Input 2"
-    depends_on: "package"
-    key: "input-2"
+  - input: ':rocket: Input 2'
+    depends_on: 'package'
+    key: 'input-2'
     fields:
-      - text: "Input 2"
-        key: "field-input-2"
+      - text: 'Input 2'
+        key: 'field-input-2'
 
-
-  - label: "Command on input 1"
-    depends_on: "input-1"
+  - label: 'Command on input 1'
+    depends_on: 'input-1'
     command: "echo 'Hello input 1'"
-  
-  - label: "Command on input 2"
-    depends_on: "input-2"
+
+  - label: 'Command on input 2'
+    depends_on: 'input-2'
     command: "echo 'Hello input 2'"
