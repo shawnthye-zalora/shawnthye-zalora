@@ -20,7 +20,7 @@ steps:
 
   - input: ":rocket: Input 2"
     depends_on: "package"
-    key: "input-1"
+    key: "input-2"
     fields:
       - text: "Input 2"
         key: "input-2"
