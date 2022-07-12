@@ -17,9 +17,7 @@ steps:
       - docker-compose#v3.10.0:
           run: fastlane
       - artifacts#v1.5.0:
-          download:
-            - from: '*.aab'
-              to: '.'
+          download: '*.aab'
           step: 'package'
 
   - input: ':rocket: Input 1'
