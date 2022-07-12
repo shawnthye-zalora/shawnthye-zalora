@@ -4,7 +4,7 @@ steps:
       - "echo 'Hello'"
     artifact_paths:
       - 'README.md'
-      - "app/outputs/bundle/**/*.aab"
+      - "app/build/outputs/bundle/**/*.aab"
       # - "app/build/outputs/bundle/debug/app-debug.aab"
     plugins:
       - docker-compose#v3.10.0:
