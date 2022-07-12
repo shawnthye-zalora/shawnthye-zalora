@@ -11,8 +11,8 @@ steps:
           run: fastlane
       - artifacts#v1.5.0:
           upload:
-            from: '**/*.aab'
-            to: 'build'
+            - from: '**/*.aab'
+              to: 'build/aaa.aab'
 
   - command: 'echo "+++ Files" && ls -alR'
     depends_on: 'package'
