@@ -16,11 +16,10 @@ steps:
     plugins:
       - docker-compose#v3.10.0:
           run: fastlane
-          command: ['mkdir', 'tmp']
       - artifacts#v1.5.0:
           download:
             - from: 'app/build/outputs/bundle/**/*.aab'
-              to: 'tmp/'
+              to: '.buildkite'
           step: 'package'
 
   - input: ':rocket: Input 1'
